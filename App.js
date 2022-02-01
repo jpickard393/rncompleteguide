@@ -13,13 +13,17 @@ import GoalInput from './components/GoalInput';
 export default function App() {
   const [courseGoals, setCourseGoals] = useState([]);
   const [isAddMode, setIsAddMode] = useState(false);
-  const cancelGoalAddHandler = () => {
-    setIsAddMode(false);
-  };
+  // const cancelGoalAddHandler = () => {
+  //   setIsAddMode(false);
+  // };
   const removeGoalHandler = goalId => {
     setCourseGoals(currentGoals => {
       return currentGoals.filter(goal => goal.id !== goalId);
     });
+  };
+
+  const cancelGoalAdditionHandler = () => {
+    setIsAddMode(false);
   };
 
   const addGoalHandler = goalTitle => {
@@ -36,7 +40,7 @@ export default function App() {
       <GoalInput
         visible={isAddMode}
         onAddGoal={addGoalHandler}
-        onCancel={cancelGoalAddHandler}
+        onCancel={cancelGoalAdditionHandler}
       />
       <FlatList
         keyExtractor={(item, index) => item.id}
