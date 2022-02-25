@@ -6,18 +6,13 @@
  * @flow strict-local
  */
 import React, {useState} from 'react';
-import {StyleSheet, View, FlatList, Button} from 'react-native';
-import GoalItem from './components/GoalItem';
-import GoalInput from './components/GoalInput';
+import {StyleSheet, View, Button} from 'react-native';
+import GoalInput from './components/GoalInput/GoalInput';
+import GoalList from './components/GoalList/GoalList';
 
 export default function App() {
   const [courseGoals, setCourseGoals] = useState([]);
   const [isAddMode, setIsAddMode] = useState(false);
-  const removeGoalHandler = goalId => {
-    setCourseGoals(currentGoals => {
-      return currentGoals.filter(goal => goal.id !== goalId);
-    });
-  };
 
   const cancelGoalAdditionHandler = () => {
     setIsAddMode(false);
@@ -39,7 +34,8 @@ export default function App() {
         onAddGoal={addGoalHandler}
         onCancel={cancelGoalAdditionHandler}
       />
-      <FlatList
+      <GoalList courseGoals={courseGoals} />
+      {/* <FlatList
         keyExtractor={(item, index) => item.id}
         data={courseGoals}
         renderItem={itemData => (
@@ -50,7 +46,7 @@ export default function App() {
             title={itemData.item.value}
           />
         )}
-      />
+      /> */}
     </View>
   );
 }
