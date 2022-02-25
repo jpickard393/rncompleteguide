@@ -14,6 +14,12 @@ export default function App() {
   const [courseGoals, setCourseGoals] = useState([]);
   const [isAddMode, setIsAddMode] = useState(false);
 
+  const removeGoalHandler = goalId => {
+    setCourseGoals(currentGoals => {
+      return currentGoals.filter(goal => goal.id !== goalId);
+    });
+  };
+
   const cancelGoalAdditionHandler = () => {
     setIsAddMode(false);
   };
@@ -34,7 +40,10 @@ export default function App() {
         onAddGoal={addGoalHandler}
         onCancel={cancelGoalAdditionHandler}
       />
-      <GoalList courseGoals={courseGoals} />
+      <GoalList
+        courseGoals={courseGoals}
+        removeGoalHandler={removeGoalHandler}
+      />
       {/* <FlatList
         keyExtractor={(item, index) => item.id}
         data={courseGoals}

@@ -2,13 +2,7 @@ import React from 'react';
 import {FlatList} from 'react-native';
 import GoalItem from '../GoalItem/GoalItem';
 
-const GoalList = ({courseGoals}) => {
-  const removeGoalHandler = goalId => {
-    setCourseGoals(currentGoals => {
-      return currentGoals.filter(goal => goal.id !== goalId);
-    });
-  };
-
+const GoalList = ({courseGoals, removeGoalHandler}) => {
   return (
     <FlatList
       keyExtractor={(item, index) => item.id}
