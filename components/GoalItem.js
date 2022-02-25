@@ -5,7 +5,7 @@ const GoalItem = props => {
   return (
     <TouchableOpacity onPress={props.onDelete} activeOpacity={0.5}>
       <View style={styles.listItem}>
-        <Text>{props.title}</Text>
+        <Text style={styles.listItemtext}>{props.title}</Text>
       </View>
     </TouchableOpacity>
   );
@@ -15,9 +15,12 @@ const styles = StyleSheet.create({
   listItem: {
     padding: 10,
     marginVertical: 10,
-    backgroundColor: 'silver',
-    borderColor: 'black',
+    backgroundColor: 'green',
+    borderColor: 'silver',
     borderWidth: 1,
+  },
+  listItemtext: {
+    color: 'white',
   },
 });
 
