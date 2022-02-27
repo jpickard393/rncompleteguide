@@ -44,18 +44,6 @@ export default function App() {
         courseGoals={courseGoals}
         removeGoalHandler={removeGoalHandler}
       />
-      {/* <FlatList
-        keyExtractor={(item, index) => item.id}
-        data={courseGoals}
-        renderItem={itemData => (
-          <GoalItem
-            onDelete={() => {
-              removeGoalHandler(itemData.item.id);
-            }}
-            title={itemData.item.value}
-          />
-        )}
-      /> */}
     </View>
   );
 }
