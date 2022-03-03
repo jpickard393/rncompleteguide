@@ -21,4 +21,15 @@ describe('Add button', () => {
     // should now call addGoalHandler and set enteredGoal state to be what is entered in the text box
     expect(addGoalHandler).toHaveBeenCalledWith(eventData.enteredGoal);
   });
+// test goallist 
+
 });
+
+
+//goallist test
+// create mock data for cousegoals
+
+// mock flatlist (not goallist)
+// render goallist with coursegoals as input
+// assert flatlist mock has recieved coursegoals as data attribute
+
